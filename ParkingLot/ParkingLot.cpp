@@ -7,14 +7,14 @@ int main()
     string direction;
     string regNumber;
     set<string> sRegNumbers;
-    while (cin >> direction, direction != "END") {
+    while (cin >> direction && direction != "END") {
         cin >> regNumber;
         if (direction == "IN,") {
             sRegNumbers.insert(regNumber);
         }
         else {
-            //set<string>::iterator itr = find(sRegNumbers.begin(), sRegNumbers.end(), regNumber);
-            sRegNumbers.erase(regNumber);
+            set<string>::iterator itr = find(sRegNumbers.begin(), sRegNumbers.end(), regNumber);
+            sRegNumbers.erase(itr);
         }
     }
     if (sRegNumbers.size()) {
